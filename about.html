@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Discover Scanline Classic, a flexible shader system for RetroArch.">
+  <meta name="color-scheme" content="dark">
+  <title>About Scanline Classic</title>
+  <link rel="icon" type="image/png" href="share/scanlinemini.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header>
+    <nav aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="about.html" aria-current="page">About Scanline Classic</a>
+      <a href="faq.html">FAQ</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="reference.html">Reference</a>
+      <a href="other-projects.html">Other Projects</a>
+    </nav>
+    <img src="share/scanlinelogo.png" alt="Scanline Classic" width="1959" height="625">
+    <p>Classic technology shaders for everyone!</p>
+  </header>
+  <main id="main">
+    <hr>
+    <h1>About Scanline Classic</h1>
+    <p>Classic games were made for displays that gave their pictures a character all their own. Scanline Classic brings some of that character to modern screens.</p>
+    <figure class="demo-about">
+      <img src="share/ntsc-bars.png" alt="NTSC color bars shown on a simulated CRT screen" width="2880" height="2160">
+      <figcaption>NTSC color bars with Scanline Classic</figcaption>
+    </figure>
+    <p>More than just scanlines, it offers a range of looks inspired by classic video signals and displays. Choose a preset for your system, explore different presentations, and make the picture your own.</p>
+    <h2>Analog character, rendered with room to breathe</h2>
+    <p>At the heart of Scanline Classic is a high dynamic range rendering (HDRR) pipeline. Instead of forcing every intermediate color and brightness value into the narrow range of a finished image, it keeps extra room for the signal and display simulation to work. Values outside the final display's color or brightness range can be handled later, rather than being clipped away too early.</p>
+    <p>This matters because analog video is more than a clean grid of pixels. Signals are shaped by the system, the connection, and the display; light is then produced by the screen. Scanline Classic models these stages in order, processing light-based effects in linear light before fitting the result to your display. The extra range helps preserve the subtle interactions of color, brightness, and glow that give analog video its character.</p>
+    <p>HDRR is an internal rendering approach, not a requirement for an HDR display: Scanline Classic also offers output for standard dynamic range screens. While no shader can perfectly reproduce every display, this approach is designed to bring the result closer to the behavior of analog video.</p>
+    <p>Built for RetroArch, Scanline Classic combines an eye for visual quality with the flexibility to suit different games and tastes.</p>
+    <p>Ready to explore? Visit the <a href="https://github.com/anikom15/scanline-classic">Scanline Classic project</a> or read the <a href="faq.html">FAQ</a>.</p>
+  </main>
+  <footer>
+    <hr>
+    <p>scanlineclassic.com</p>
+    <p>Copyright &copy; 2026 Scanline Classic</p>
+    <p>This page is licensed under a <a href="https://creativecommons.org/licenses/by-nd/4.0/">Creative Commons Attribution-NoDerivatives 4.0 International License</a>.</p>
+  </footer>
+</body>
+</html>

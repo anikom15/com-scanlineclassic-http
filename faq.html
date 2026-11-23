@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Frequently asked questions about Scanline Classic and its presets.">
+  <meta name="color-scheme" content="dark">
+  <title>FAQ | Scanline Classic</title>
+  <link rel="icon" type="image/png" href="share/scanlinemini.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header>
+    <nav aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Scanline Classic</a>
+      <a href="faq.html" aria-current="page">FAQ</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="reference.html">Reference</a>
+      <a href="other-projects.html">Other Projects</a>
+    </nav>
+    <img src="share/scanlinelogo.png" alt="Scanline Classic" width="1959" height="625">
+    <p>Classic technology shaders for everyone!</p>
+  </header>
+  <main id="main">
+    <hr>
+    <h1>Frequently Asked Questions</h1>
+    <h2>Can Scanline Classic be used with any system?</h2>
+    <p>Scanline Classic is designed to work with RetroArch, which supports a wide range of systems. Any preset can be applied to any system supported by RetroArch with Slang shader support. However, the visual result will vary depending on the preset used. For best results, choose a preset that matches the system, region, and intended video connection of the content you want to play. If a preset is not available for your specific combination, you may open an issue on the <a href="https://github.com/anikom15/scanline-classic">project repository</a>. There are other programs beyond RetroArch that support Slang shaders, but RetroArch is the only current officially supported platform at this time.</p>
+    <h2>Does Scanline Classic work with interlaced content?</h2>
+    <p>Yes. When we create a preset for a particular system, we test it on all <emph>native</emph> output modes of that system to the extent possible, including interlaced modes. This ensures that the preset works correctly with interlaced content.</p>
+    <h2>Does Scanline Classic support high-resolution content and upscalers?</h2>
+    <p>Not primarily. Scanline Classic is focused on recreating the look of classic displays and video connections. Emulators that render content at a size higher than the orignal system resolution are not tested for accuracy or compatibility with these presets.</p>
+    <h2>Does Scanline Classic work with HDR displays?</h2>
+    <p>Yes. Scanline Classic is designed specifically to work with HDR displays and has a full HDRR pipeline to ensure accurate color reproduction and dynamic range. If you have an HDR-compatible video card and display, we recommend enabling HDR mode in your OS settings and RetroArch to take full advantage of this feature.</p>
+    <h2>Does Scanline Classic work with SDR displays?</h2>
+    <p>Yes. Scanline Classic is compatible with SDR displays as well. The shader will adapt to the display's capabilities automatically.</p>
+    <h2>Do I need to calibrate my display?</h2>
+    <p>No. Scanline Classic is designed to work well with both professional and consumer displays. Calibration is recommended, but you may set your monitor up as you prefer and still achieve good results.</p>
+    <h2>Do I need any special hardware?</h2>
+    <p>Scanline Classic requires a relatively fast video card compared to other shaders. However, most presets can run full speed on recent integrated graphics and handhelds.</p>
+    <h2>Why are there so many presets?</h2>
+    <p>Different systems, regional versions, video connections, and displays can produce different pictures. The presets provide starting points for many of those combinations, so you can choose a look that fits what you want to play. It isn't necessary to try them all.</p>
+    <h2>Why are there multiple presets for the same system?</h2>
+    <p>A system may have regional variants and may be shown through different video connections, such as RF, composite, S-Video, or RGB. Presets can also represent different kinds of displays, such as consumer televisions and professional monitors. These choices affect the picture, so try the version that matches the experience you want.</p>
+    <h2>Which preset should I start with?</h2>
+    <p>Look for your system and region, then try a consumer or professional preset. If there are different connection options, choose one that interests you and compare it with the others. The best starting point is the one you enjoy.</p>
+    <h2>What do I need to use Scanline Classic?</h2>
+    <p>You need RetroArch with Slang shader support. See the <a href="https://github.com/anikom15/scanline-classic">project documentation</a> for installation and usage guidance.</p>
+    <h2>Can I adjust the look?</h2>
+    <p>Yes. Presets are starting points, and shader parameters let you customize the picture. See the project documentation for details.</p>
+    <h2>Where can I ask questions or discuss the shader?</h2>
+    <p>Visit the <a href="https://forums.libretro.com/t/the-scanline-classic-shader/41497">Scanline Classic Libretro forum thread</a>.</p>
+  </main>
+  <footer>
+    <hr>
+    <p>scanlineclassic.com</p>
+    <p>Copyright &copy; 2026 Scanline Classic</p>
+    <p>This page is licensed under a <a href="https://creativecommons.org/licenses/by-nd/4.0/">Creative Commons Attribution-NoDerivatives 4.0 International License</a>.</p>
+  </footer>
+</body>
+</html>
