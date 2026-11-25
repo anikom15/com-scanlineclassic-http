@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>Estimated Timings | Scanline Classic Reference</title>
+  <link rel="icon" type="image/png" href="../share/scanlinemini.png">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header>
+    <nav aria-label="Main navigation">
+      <a href="../index.html">Home</a>
+      <a href="../about.html">About Scanline Classic</a>
+      <a href="../faq.html">FAQ</a>
+      <a href="../gallery.html">Gallery</a>
+      <a href="../reference.html" aria-current="location">Reference</a>
+      <a href="../resources.html">Resources</a>
+      <a href="../other-projects.html">Other Projects</a>
+    </nav>
+    <img src="../share/scanlinelogo.png" alt="Scanline Classic" width="1959" height="625">
+    <p>Classic technology shaders for everyone!</p>
+  </header>
+  <main id="main">
+    <hr>
+    <p><a href="../reference.html">Reference</a></p>
+    <h1>Estimated Timings of Popular Systems</h1>
+
+    <h2>Consoles</h2>
+    <h3>Generation 4</h3>
+    <h4>Super Famicom (Super Nintendo Entertainment System)</h4>
+    <h5>NTSC</h5>
+
+    <h6>All Modes</h6>
+    <ul>
+      <li>Chroma subcarrier frequency &ndash; 3.579545&nbsp;MHz (<math aria-label="f sub sc"><msub><mi>f</mi><mi>sc</mi></msub></math>)</li>
+      <li>Pixel clock &ndash; 21.47727&nbsp;MHz (<math aria-label="F sub s equals 6 f sub sc"><msub><mi>F</mi><mi>s</mi></msub><mo>=</mo><mn>6</mn><msub><mi>f</mi><mi>sc</mi></msub></math>)</li>
+      <li>Clock cycles per line &ndash; 1364, except for line 240 (<math aria-label="N sub h"><msub><mi>N</mi><mi>h</mi></msub></math>)</li>
+      <li>Horizontal frequency &ndash; 15.74580&nbsp;kHz, except for line 240 (<math aria-label="f sub h equals F sub s divided by N sub h"><msub><mi>f</mi><mi>h</mi></msub><mo>=</mo><mfrac><msub><mi>F</mi><mi>s</mi></msub><msub><mi>N</mi><mi>h</mi></msub></mfrac></math>)</li>
+    </ul>
+
+    <h6>Non-Interlaced Modes</h6>
+    <ul>
+      <li>Line 240, clock cycles &ndash; 1360 (<math aria-label="N sub h comma 240"><msub><mi>N</mi><mrow><mi>h</mi><mo>,</mo><mn>240</mn></mrow></msub></math>)</li>
+      <li>Line 240, horizontal frequency &ndash; 15.79211&nbsp;Hz (<math aria-label="f sub h comma 240 equals F sub s divided by N sub h comma 240"><msub><mi>f</mi><mrow><mi>h</mi><mo>,</mo><mn>240</mn></mrow></msub><mo>=</mo><mfrac><msub><mi>F</mi><mi>s</mi></msub><msub><mi>N</mi><mrow><mi>h</mi><mo>,</mo><mn>240</mn></mrow></msub></mfrac></math>)</li>
+      <li>Lines per field &ndash; 262 (<math aria-label="N sub v"><msub><mi>N</mi><mi>v</mi></msub></math>)</li>
+      <li>Clock cycles per field - 357&#8239;364 (<math aria-label="N equals N sub h times the quantity N sub v minus 1 plus N sub h comma 240"><mi>N</mi><mo>=</mo><msub><mi>N</mi><mi>h</mi></msub><mrow><mo>(</mo><msub><mi>N</mi><mi>v</mi></msub><mo>-</mo><mn>1</mn><mo>)</mo></mrow><mo>+</mo><msub><mi>N</mi><mrow><mi>h</mi><mo>,</mo><mn>240</mn></mrow></msub></math>)</li>
+      <li>Field rate &ndash; 60.09914&nbsp;Hz (<math aria-label="f sub v equals F sub s divided by N"><msub><mi>f</mi><mi>v</mi></msub><mo>=</mo><mfrac><msub><mi>F</mi><mi>s</mi></msub><mi>N</mi></mfrac></math>)</li>
+    </ul>
+
+    <h6>Interlaced Modes</h6>
+    <ul>
+      <li>Line 240, clock cycles &ndash; 1364 (<math aria-label="N sub h"><msub><mi>N</mi><mi>h</mi></msub></math>)</li>
+      <li>Line 240, horizontal frequency &ndash; 15.79211&nbsp;kHz (<math aria-label="f sub h"><msub><mi>f</mi><mi>h</mi></msub></math>)</li>
+      <li>Lines per field &ndash; 263 even, 262 odd (<math aria-label="N sub v 0, N sub v 1"><msub><mi>N</mi><mrow><mi>v</mi><mn>0</mn></mrow></msub><mo>,</mo><msub><mi>N</mi><mrow><mi>v</mi><mn>1</mn></mrow></msub></math>)</li>
+      <li>Clock cycles per field &ndash; 358&#8239;732 even, 357&#8239;368 odd (<math aria-label="N sub 0, N sub 1"><msub><mi>N</mi><mn>0</mn></msub><mo>,</mo><msub><mi>N</mi><mn>1</mn></msub></math>)</li>
+      <li>Clock cycles per frame &ndash; 716&#8239;100 (<math aria-label="N sub 0 plus 1"><msub><mi>N</mi><mrow><mn>0</mn><mo>+</mo><mn>1</mn></mrow></msub></math>)</li>
+      <li>Field rate &ndash; 59.86996&nbsp;Hz even, 60.09847&nbsp;Hz odd (<math aria-label="f sub v 0 equals F sub s divided by N sub 0, f sub v 1 equals F sub s divided by N sub 1"><msub><mi>f</mi><mrow><mi>v</mi><mn>0</mn></mrow></msub><mo>=</mo><mfrac><msub><mi>F</mi><mi>s</mi></msub><msub><mi>N</mi><mn>0</mn></msub></mfrac><mo>,</mo><msub><mi>f</mi><mrow><mi>v</mi><mn>1</mn></mrow></msub><mo>=</mo><mfrac><msub><mi>F</mi><mi>s</mi></msub><msub><mi>N</mi><mn>1</mn></msub></mfrac></math>)</li>
+      <li>Frame rate &ndash; 29.99110&nbsp;Hz (<math aria-label="f sub v equals F sub s divided by N sub 0 plus 1"><msub><mi>f</mi><mi>v</mi></msub><mo>=</mo><mfrac><msub><mi>F</mi><mi>s</mi></msub><msub><mi>N</mi><mrow><mn>0</mn><mo>+</mo><mn>1</mn></mrow></msub></mfrac></math>)</li>
+    </ul>
+  </main>
+  <footer>
+    <hr>
+    <p>scanlineclassic.com</p>
+    <p>Copyright &copy; 2026 Scanline Classic</p>
+    <p>This page is licensed under a <a href="https://creativecommons.org/licenses/by-nd/4.0/">Creative Commons Attribution-NoDerivatives 4.0 International License</a>.</p>
+  </footer>
+</body>
+</html>
