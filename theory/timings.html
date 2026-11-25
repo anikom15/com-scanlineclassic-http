@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Estimated Super Famicom NTSC clock, horizontal, field, and frame timings for interlaced and non-interlaced modes.">
+  <meta name="description" content="Estimated Super Famicom and Super Nintendo NTSC and PAL clock, horizontal, field, and frame timings for interlaced and non-interlaced modes.">
   <meta name="color-scheme" content="dark">
   <title>Estimated Timings | Scanline Classic Reference</title>
   <link rel="canonical" href="https://www.scanlineclassic.com/theory/timings.html">
@@ -30,6 +30,14 @@
     <p><a href="../reference.html">Reference</a></p>
     <h1>Estimated Timings of Popular Systems</h1>
 
+    <p>Conventions used in the following lists:</p>
+    <ul>
+      <li>Lines start at 1, not 0</li>
+      <li>Field subscripts 0 and 1 denote even and odd fields, respectively</li>
+      <li>In NTSC, the even field is considered the first field of a frame, and the odd field is the second</li>
+      <li>In PAL, the odd field is considered the first field of a frame, and the even field is the second</li>
+    </ul>
+
     <h2>Consoles</h2>
     <h3>Generation 4</h3>
     <h4>Super Famicom (Super Nintendo Entertainment System)</h4>
@@ -39,28 +47,28 @@
     <ul>
       <li>Chroma subcarrier frequency &ndash; 3.579545&nbsp;MHz (<math aria-label="f sub sc"><msub><mi>f</mi><mi>sc</mi></msub></math>)</li>
       <li>Pixel clock &ndash; 21.47727&nbsp;MHz (<math aria-label="F sub s equals 6 f sub sc"><msub><mi>F</mi><mi>s</mi></msub><mo>=</mo><mn>6</mn><msub><mi>f</mi><mi>sc</mi></msub></math>)</li>
-      <li>Clock cycles per line &ndash; 1364, except for line 240 (<math aria-label="N sub h"><msub><mi>N</mi><mi>h</mi></msub></math>)</li>
-      <li>Horizontal frequency &ndash; 15.74580&nbsp;kHz, except for line 240 (<math aria-label="f sub h equals F sub s divided by N sub h"><msub><mi>f</mi><mi>h</mi></msub><mo>=</mo><mfrac><msub><mi>F</mi><mi>s</mi></msub><msub><mi>N</mi><mi>h</mi></msub></mfrac></math>)</li>
+      <li>Normal clock cycles per line &ndash; 1364 (see line 241 below) (<math aria-label="N sub h"><msub><mi>N</mi><mi>h</mi></msub></math>)</li>
+      <li>Normal horizontal frequency &ndash; 15.74580&nbsp;kHz (see line 241 below) (<math aria-label="f sub h equals F sub s divided by N sub h"><msub><mi>f</mi><mi>h</mi></msub><mo>=</mo><mfrac><msub><mi>F</mi><mi>s</mi></msub><msub><mi>N</mi><mi>h</mi></msub></mfrac></math>)</li>
     </ul>
 
     <h6>Non-Interlaced Modes</h6>
     <ul>
-      <li>Line 240, clock cycles &ndash; 1360 (<math aria-label="N sub h comma 240"><msub><mi>N</mi><mrow><mi>h</mi><mo>,</mo><mn>240</mn></mrow></msub></math>)</li>
-      <li>Line 240, horizontal frequency &ndash; 15.79211&nbsp;kHz (<math aria-label="f sub h comma 240 equals F sub s divided by N sub h comma 240"><msub><mi>f</mi><mrow><mi>h</mi><mo>,</mo><mn>240</mn></mrow></msub><mo>=</mo><mfrac><msub><mi>F</mi><mi>s</mi></msub><msub><mi>N</mi><mrow><mi>h</mi><mo>,</mo><mn>240</mn></mrow></msub></mfrac></math>)</li>
+      <li>Line 241, clock cycles &ndash; 1364 even, 1360 odd (<math aria-label="N sub h, N sub h 1 comma 241"><msub><mi>N</mi><mi>h</mi></msub><mo>,</mo><msub><mi>N</mi><mrow><mi>h</mi><mn>1</mn><mo>,</mo><mn>241</mn></mrow></msub></math>)</li>
+      <li>Line 241, horizontal frequency &ndash; 15.74580&nbsp;kHz even, 15.79211&nbsp;kHz odd (<math aria-label="f sub h, f sub h 1 comma 241 equals F sub s divided by N sub h 1 comma 241"><msub><mi>f</mi><mi>h</mi></msub><mo>,</mo><msub><mi>f</mi><mrow><mi>h</mi><mn>1</mn><mo>,</mo><mn>241</mn></mrow></msub><mo>=</mo><mfrac><msub><mi>F</mi><mi>s</mi></msub><msub><mi>N</mi><mrow><mi>h</mi><mn>1</mn><mo>,</mo><mn>241</mn></mrow></msub></mfrac></math>)</li>
       <li>Lines per field &ndash; 262 (<math aria-label="N sub v"><msub><mi>N</mi><mi>v</mi></msub></math>)</li>
-      <li>Clock cycles per field - 357&#8239;364 (<math aria-label="N equals N sub h times the quantity N sub v minus 1 plus N sub h comma 240"><mi>N</mi><mo>=</mo><msub><mi>N</mi><mi>h</mi></msub><mrow><mo>(</mo><msub><mi>N</mi><mi>v</mi></msub><mo>-</mo><mn>1</mn><mo>)</mo></mrow><mo>+</mo><msub><mi>N</mi><mrow><mi>h</mi><mo>,</mo><mn>240</mn></mrow></msub></math>)</li>
-      <li>Field rate &ndash; 60.09914&nbsp;Hz (<math aria-label="f sub v equals F sub s divided by N"><msub><mi>f</mi><mi>v</mi></msub><mo>=</mo><mfrac><msub><mi>F</mi><mi>s</mi></msub><mi>N</mi></mfrac></math>)</li>
+      <li>Clock cycles per field &ndash; 357&#8239;368 even, 357&#8239;364 odd (<math aria-label="N sub 0 equals N sub h times N sub v, N sub 1 equals N sub h times the quantity N sub v minus 1 plus N sub h 1 comma 241"><msub><mi>N</mi><mn>0</mn></msub><mo>=</mo><msub><mi>N</mi><mi>h</mi></msub><msub><mi>N</mi><mi>v</mi></msub><mo>,</mo><msub><mi>N</mi><mn>1</mn></msub><mo>=</mo><msub><mi>N</mi><mi>h</mi></msub><mrow><mo>(</mo><msub><mi>N</mi><mi>v</mi></msub><mo>-</mo><mn>1</mn><mo>)</mo></mrow><mo>+</mo><msub><mi>N</mi><mrow><mi>h</mi><mn>1</mn><mo>,</mo><mn>241</mn></mrow></msub></math>)</li>
+      <li>Field rate &ndash; 60.09847&nbsp;Hz even, 60.09914&nbsp;Hz odd (<math aria-label="f sub v 0 equals F sub s divided by N sub 0, f sub v 1 equals F sub s divided by N sub 1"><msub><mi>f</mi><mrow><mi>v</mi><mn>0</mn></mrow></msub><mo>=</mo><mfrac><msub><mi>F</mi><mi>s</mi></msub><msub><mi>N</mi><mn>0</mn></msub></mfrac><mo>,</mo><msub><mi>f</mi><mrow><mi>v</mi><mn>1</mn></mrow></msub><mo>=</mo><mfrac><msub><mi>F</mi><mi>s</mi></msub><msub><mi>N</mi><mn>1</mn></msub></mfrac></math>)</li>
     </ul>
 
     <h6>Interlaced Modes</h6>
     <ul>
-      <li>Line 240, clock cycles &ndash; 1364 (<math aria-label="N sub h"><msub><mi>N</mi><mi>h</mi></msub></math>)</li>
-      <li>Line 240, horizontal frequency &ndash; 15.79211&nbsp;kHz (<math aria-label="f sub h"><msub><mi>f</mi><mi>h</mi></msub></math>)</li>
+      <li>Line 241, clock cycles &ndash; 1364 (<math aria-label="N sub h"><msub><mi>N</mi><mi>h</mi></msub></math>)</li>
+      <li>Line 241, horizontal frequency &ndash; 15.74580&nbsp;kHz (<math aria-label="f sub h"><msub><mi>f</mi><mi>h</mi></msub></math>)</li>
       <li>Lines per field &ndash; 263 even, 262 odd (<math aria-label="N sub v 0, N sub v 1"><msub><mi>N</mi><mrow><mi>v</mi><mn>0</mn></mrow></msub><mo>,</mo><msub><mi>N</mi><mrow><mi>v</mi><mn>1</mn></mrow></msub></math>)</li>
-      <li>Clock cycles per field &ndash; 358&#8239;732 even, 357&#8239;368 odd (<math aria-label="N sub 0, N sub 1"><msub><mi>N</mi><mn>0</mn></msub><mo>,</mo><msub><mi>N</mi><mn>1</mn></msub></math>)</li>
-      <li>Clock cycles per frame &ndash; 716&#8239;100 (<math aria-label="N sub 0 plus 1"><msub><mi>N</mi><mrow><mn>0</mn><mo>+</mo><mn>1</mn></mrow></msub></math>)</li>
+      <li>Clock cycles per field &ndash; 358&#8239;732 even, 357&#8239;368 odd (<math aria-label="N sub 0 equals N sub h times the quantity N sub v 0, N sub 1 equals N sub h times the quantity N sub v 1"><msub><mi>N</mi><mn>0</mn></msub><mo>=</mo><msub><mi>N</mi><mi>h</mi></msub><msub><mi>N</mi><mrow><mi>v</mi><mn>0</mn></mrow></msub><mo>,</mo><msub><mi>N</mi><mn>1</mn></msub><mo>=</mo><msub><mi>N</mi><mi>h</mi></msub><msub><mi>N</mi><mrow><mi>v</mi><mn>1</mn></mrow></msub></math>)</li>
+      <li>Clock cycles per frame &ndash; 716&#8239;100 (<math aria-label="N sub 0 plus 1 equals N sub 0 plus N sub 1"><msub><mi>N</mi><mrow><mn>0</mn><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><msub><mi>N</mi><mn>0</mn></msub><mo>+</mo><msub><mi>N</mi><mn>1</mn></msub></math>)</li>
       <li>Field rate &ndash; 59.86996&nbsp;Hz even, 60.09847&nbsp;Hz odd (<math aria-label="f sub v 0 equals F sub s divided by N sub 0, f sub v 1 equals F sub s divided by N sub 1"><msub><mi>f</mi><mrow><mi>v</mi><mn>0</mn></mrow></msub><mo>=</mo><mfrac><msub><mi>F</mi><mi>s</mi></msub><msub><mi>N</mi><mn>0</mn></msub></mfrac><mo>,</mo><msub><mi>f</mi><mrow><mi>v</mi><mn>1</mn></mrow></msub><mo>=</mo><mfrac><msub><mi>F</mi><mi>s</mi></msub><msub><mi>N</mi><mn>1</mn></msub></mfrac></math>)</li>
-      <li>Frame rate &ndash; 29.99200&nbsp;Hz (<math aria-label="f sub v equals F sub s divided by N sub 0 plus 1"><msub><mi>f</mi><mi>v</mi></msub><mo>=</mo><mfrac><msub><mi>F</mi><mi>s</mi></msub><msub><mi>N</mi><mrow><mn>0</mn><mo>+</mo><mn>1</mn></mrow></msub></mfrac></math>)</li>
+      <li>Frame rate &ndash; 29.99200&nbsp;Hz (<math aria-label="f sub frame equals F sub s divided by N sub 0 plus 1"><msub><mi>f</mi><mtext>frame</mtext></msub><mo>=</mo><mfrac><msub><mi>F</mi><mi>s</mi></msub><msub><mi>N</mi><mrow><mn>0</mn><mo>+</mo><mn>1</mn></mrow></msub></mfrac></math>)</li>
     </ul>
 
     <h6>Output Modes</h6>
@@ -73,6 +81,48 @@
       <li>256x478@60i</li>
       <li>512x448@60i</li>
       <li>512x478@60i</li>
+    </ul>
+
+    <h5>PAL</h5>
+
+    <h6>All Modes</h6>
+    <ul>
+      <li>Chroma subcarrier frequency &ndash; 4.433618750&nbsp;MHz (<math aria-label="f sub sc"><msub><mi>f</mi><mi>sc</mi></msub></math>)</li>
+      <li>Pixel clock &ndash; 21.28137000&nbsp;MHz (<math aria-label="F sub s equals 24 fifths f sub sc"><msub><mi>F</mi><mi>s</mi></msub><mo>=</mo><mfrac><mn>24</mn><mn>5</mn></mfrac><msub><mi>f</mi><mi>sc</mi></msub></math>)</li>
+      <li>Normal clock cycles per line &ndash; 1364 (see line 312 below) (<math aria-label="N sub h"><msub><mi>N</mi><mi>h</mi></msub></math>)</li>
+      <li>Normal horizontal frequency &ndash; 15.60217742&nbsp;kHz (see line 312 below) (<math aria-label="f sub h equals F sub s divided by N sub h"><msub><mi>f</mi><mi>h</mi></msub><mo>=</mo><mfrac><msub><mi>F</mi><mi>s</mi></msub><msub><mi>N</mi><mi>h</mi></msub></mfrac></math>)</li>
+    </ul>
+
+    <h6>Non-Interlaced Modes</h6>
+    <ul>
+      <li>Line 312, clock cycles &ndash; 1364 (<math aria-label="N sub h"><msub><mi>N</mi><mi>h</mi></msub></math>)</li>
+      <li>Line 312, horizontal frequency &ndash; 15.60217742&nbsp;kHz (<math aria-label="f sub h"><msub><mi>f</mi><mi>h</mi></msub></math>)</li>
+      <li>Lines per field &ndash; 312 (<math aria-label="N sub v"><msub><mi>N</mi><mi>v</mi></msub></math>)</li>
+      <li>Clock cycles per field &ndash; 425&#8239;568 (<math aria-label="N equals N sub h times N sub v"><mi>N</mi><mo>=</mo><msub><mi>N</mi><mi>h</mi></msub><msub><mi>N</mi><mi>v</mi></msub></math>)</li>
+      <li>Field rate &ndash; 50.00697891&nbsp;Hz (<math aria-label="f sub v equals F sub s divided by N"><msub><mi>f</mi><mi>v</mi></msub><mo>=</mo><mfrac><msub><mi>F</mi><mi>s</mi></msub><mi>N</mi></mfrac></math>)</li>
+    </ul>
+
+    <h6>Interlaced Modes</h6>
+    <ul>
+      <li>Line 312, clock cycles &ndash; 1368 odd, 1364 even (<math aria-label="N sub h 1 comma 312, N sub h"><msub><mi>N</mi><mrow><mi>h</mi><mn>1</mn><mo>,</mo><mn>312</mn></mrow></msub><mo>,</mo><msub><mi>N</mi><mi>h</mi></msub></math>)</li>
+      <li>Line 312, horizontal frequency &ndash; 15.55655702&nbsp;kHz odd, 15.60217742&nbsp;kHz even (<math aria-label="f sub h 1 comma 312 equals F sub s divided by N sub h 1 comma 312, f sub h"><msub><mi>f</mi><mrow><mi>h</mi><mn>1</mn><mo>,</mo><mn>312</mn></mrow></msub><mo>=</mo><mfrac><msub><mi>F</mi><mi>s</mi></msub><msub><mi>N</mi><mrow><mi>h</mi><mn>1</mn><mo>,</mo><mn>312</mn></mrow></msub></mfrac><mo>,</mo><msub><mi>f</mi><mi>h</mi></msub></math>)</li>
+      <li>Lines per field &ndash; 312 odd, 313 even (<math aria-label="N sub v 1, N sub v 0"><msub><mi>N</mi><mrow><mi>v</mi><mn>1</mn></mrow></msub><mo>,</mo><msub><mi>N</mi><mrow><mi>v</mi><mn>0</mn></mrow></msub></math>)</li>
+      <li>Clock cycles per field &ndash; 425&#8239;572 odd, 426&#8239;932 even (<math aria-label="N sub 1 equals N sub h times the quantity N sub v 1 minus 1 plus N sub h 1 comma 312, N sub 0 equals N sub h times N sub v 0"><msub><mi>N</mi><mn>1</mn></msub><mo>=</mo><msub><mi>N</mi><mi>h</mi></msub><mrow><mo>(</mo><msub><mi>N</mi><mrow><mi>v</mi><mn>1</mn></mrow></msub><mo>-</mo><mn>1</mn><mo>)</mo></mrow><mo>+</mo><msub><mi>N</mi><mrow><mi>h</mi><mn>1</mn><mo>,</mo><mn>312</mn></mrow></msub><mo>,</mo><msub><mi>N</mi><mn>0</mn></msub><mo>=</mo><msub><mi>N</mi><mi>h</mi></msub><msub><mi>N</mi><mrow><mi>v</mi><mn>0</mn></mrow></msub></math>)</li>
+      <li>Clock cycles per frame &ndash; 852&#8239;504 (<math aria-label="N sub 1 plus 0 equals N sub 1 plus N sub 0"><msub><mi>N</mi><mrow><mn>1</mn><mo>+</mo><mn>0</mn></mrow></msub><mo>=</mo><msub><mi>N</mi><mn>1</mn></msub><mo>+</mo><msub><mi>N</mi><mn>0</mn></msub></math>)</li>
+      <li>Field rate &ndash; 50.00650889&nbsp;Hz odd, 49.84721220&nbsp;Hz even (<math aria-label="f sub v 1 equals F sub s divided by N sub 1, f sub v 0 equals F sub s divided by N sub 0"><msub><mi>f</mi><mrow><mi>v</mi><mn>1</mn></mrow></msub><mo>=</mo><mfrac><msub><mi>F</mi><mi>s</mi></msub><msub><mi>N</mi><mn>1</mn></msub></mfrac><mo>,</mo><msub><mi>f</mi><mrow><mi>v</mi><mn>0</mn></mrow></msub><mo>=</mo><mfrac><msub><mi>F</mi><mi>s</mi></msub><msub><mi>N</mi><mn>0</mn></msub></mfrac></math>)</li>
+      <li>Frame rate &ndash; 24.96336674&nbsp;Hz (<math aria-label="f sub frame equals F sub s divided by N sub 1 plus 0"><msub><mi>f</mi><mtext>frame</mtext></msub><mo>=</mo><mfrac><msub><mi>F</mi><mi>s</mi></msub><msub><mi>N</mi><mrow><mn>1</mn><mo>+</mo><mn>0</mn></mrow></msub></mfrac></math>)</li>
+    </ul>
+
+    <h6>Output Modes</h6>
+    <ul>
+      <li>256x224@50p</li>
+      <li>256x239@50p</li>
+      <li>512x224@50p</li>
+      <li>256x448@50i</li>
+      <li>512x239@50p</li>
+      <li>256x478@50i</li>
+      <li>512x448@50i</li>
+      <li>512x478@50i</li>
     </ul>
   </main>
   <footer>
