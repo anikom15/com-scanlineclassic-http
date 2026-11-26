@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Estimated Super Famicom and Super Nintendo NTSC and PAL clock, horizontal, field, and frame timings for interlaced and non-interlaced modes.">
+  <meta name="description" content="Estimated Super Famicom and Super Nintendo NTSC, PAL, and PAL-M clock, horizontal, field, and frame timings for interlaced and non-interlaced modes.">
   <meta name="color-scheme" content="dark">
   <title>Estimated Timings | Scanline Classic Reference</title>
   <link rel="canonical" href="https://www.scanlineclassic.com/theory/timings.html">
@@ -30,20 +30,37 @@
     <p><a href="../reference.html">Reference</a></p>
     <h1>Estimated Timings of Popular Systems</h1>
 
+    <p>The timing values on this page are reference values used by Scanline Classic for phase calculations.</p>
+
+    <p>It&rsquo;s important to distinguish between timing used as a reference for phase calculations and timing used for frame presentation. The timing values listed here are used to determine intra-field and inter-field phase relationships. They are reference values, not strict requirements that an emulator or display must reproduce exactly. Small deviations in presentation timing primarily affect the rate at which fields are delivered rather than the appearance of the fields themselves. Scanline Classic therefore performs its phase calculations using precise timing references independently of the emulator&rsquo;s reported frame rate or the display&rsquo;s refresh rate.</p>
+
+    <p>Scanline Classic precomputes timing information for various popular systems at build time to achieve a high level of precision. This reduces the degree of phase drift across fields. It decouples the calculation of phase relationships from the emulator&rsquo;s presentation of frames and does not use the emulator&rsquo;s reported frame rate or the display frame rate for precise calculations. This allows virtually any emulator to be used without compromising the accuracy of the phase calculations. Emulators that use simplified or approximate timings for performance or any other reason need not worry about disturbing Scanline Classic&rsquo;s own phase calculations so long as they output according to the defined ouput modes below and use a frame rate consistent with NTSC, PAL, or VESA timing conventions.</p>
+
+    <p>Scanline Classic does its best to determine the appropriate timing reference to use for each system based on the emulator&rsquo;s rendered frame size and framerate. Since NTSC and PAL-M systems share similar sizes and frame rates, they generally cannot be distinguished by Scanline Classic. A global setting is provided that allows the user to specify treating NTSC-detected systems as either NTSC or PAL-M.</p>
+    
+    <p>Scanline Classic can determine the appropriate timing reference even if overscan cropping or other modifications are applied to the output before the shader. For best results, it&rsquo;s recommended to disable overscan cropping and other modifications to the rendered frame size before the shader processes the output.</p>
+
     <p>Conventions used in the following lists:</p>
     <ul>
+      <li>These values are derived from direct measurements, published timing references, hardware documentation, and mathematical reconstruction</li>
       <li>Lines start at 1, not 0</li>
       <li>Field subscripts 0 and 1 denote even and odd fields, respectively</li>
-      <li>In NTSC, the even field is considered the first field of a frame, and the odd field is the second</li>
-      <li>In PAL, the odd field is considered the first field of a frame, and the even field is the second</li>
+      <li>In 525-line systems (including PAL-M), the even field is considered the first field of a frame, and the odd field is the second</li>
+      <li>In 625-line systems, the odd field is considered the first field of a frame, and the even field is the second</li>
     </ul>
+
+    <p>If you find an error or have additional information regarding the timings listed here, please report it directly to this website&rsquo;s <a href="https://github.com/anikom15/com-scanlineclassic-http">repository</a>.</p>
 
     <h2>Consoles</h2>
     <h3>Generation 4</h3>
     <h4>Super Famicom (Super Nintendo Entertainment System)</h4>
+
+    <p>NTSC and PAL timings were derived from the <a href="https://snes.nesdev.org/wiki/Timing#Reference">SNESdev Wiki Timing Reference</a>.</p>
+    <p>PAL-M timings were derived using extrapolations derived from the <a href="https://retrotechwiki.com/index.php?section=1&title=Super_Famicom_Maintenance_Guide">Retro Tech Collection: Super Famicom Maintenance Guide</a>.</p>
+
     <h5>NTSC</h5>
 
-    <h6>All Modes</h6>
+    <h6 id="ntsc-all-modes">All Modes</h6>
     <ul>
       <li>Chroma subcarrier frequency &ndash; 3.579545&nbsp;MHz (<math aria-label="f sub sc"><msub><mi>f</mi><mi>sc</mi></msub></math>)</li>
       <li>Pixel clock &ndash; 21.47727&nbsp;MHz (<math aria-label="F sub s equals 6 f sub sc"><msub><mi>F</mi><mi>s</mi></msub><mo>=</mo><mn>6</mn><msub><mi>f</mi><mi>sc</mi></msub></math>)</li>
@@ -51,7 +68,7 @@
       <li>Normal horizontal frequency &ndash; 15.74580&nbsp;kHz (see line 241 below) (<math aria-label="f sub h equals F sub s divided by N sub h"><msub><mi>f</mi><mi>h</mi></msub><mo>=</mo><mfrac><msub><mi>F</mi><mi>s</mi></msub><msub><mi>N</mi><mi>h</mi></msub></mfrac></math>)</li>
     </ul>
 
-    <h6>Non-Interlaced Modes</h6>
+    <h6 id="ntsc-non-interlaced-modes">Non-Interlaced Modes</h6>
     <ul>
       <li>Line 241, clock cycles &ndash; 1364 even, 1360 odd (<math aria-label="N sub h, N sub h 1 comma 241"><msub><mi>N</mi><mi>h</mi></msub><mo>,</mo><msub><mi>N</mi><mrow><mi>h</mi><mn>1</mn><mo>,</mo><mn>241</mn></mrow></msub></math>)</li>
       <li>Line 241, horizontal frequency &ndash; 15.74580&nbsp;kHz even, 15.79211&nbsp;kHz odd (<math aria-label="f sub h, f sub h 1 comma 241 equals F sub s divided by N sub h 1 comma 241"><msub><mi>f</mi><mi>h</mi></msub><mo>,</mo><msub><mi>f</mi><mrow><mi>h</mi><mn>1</mn><mo>,</mo><mn>241</mn></mrow></msub><mo>=</mo><mfrac><msub><mi>F</mi><mi>s</mi></msub><msub><mi>N</mi><mrow><mi>h</mi><mn>1</mn><mo>,</mo><mn>241</mn></mrow></msub></mfrac></math>)</li>
@@ -60,7 +77,7 @@
       <li>Field rate &ndash; 60.09847&nbsp;Hz even, 60.09914&nbsp;Hz odd (<math aria-label="f sub v 0 equals F sub s divided by N sub 0, f sub v 1 equals F sub s divided by N sub 1"><msub><mi>f</mi><mrow><mi>v</mi><mn>0</mn></mrow></msub><mo>=</mo><mfrac><msub><mi>F</mi><mi>s</mi></msub><msub><mi>N</mi><mn>0</mn></msub></mfrac><mo>,</mo><msub><mi>f</mi><mrow><mi>v</mi><mn>1</mn></mrow></msub><mo>=</mo><mfrac><msub><mi>F</mi><mi>s</mi></msub><msub><mi>N</mi><mn>1</mn></msub></mfrac></math>)</li>
     </ul>
 
-    <h6>Interlaced Modes</h6>
+    <h6 id="ntsc-interlaced-modes">Interlaced Modes</h6>
     <ul>
       <li>Line 241, clock cycles &ndash; 1364 (<math aria-label="N sub h"><msub><mi>N</mi><mi>h</mi></msub></math>)</li>
       <li>Line 241, horizontal frequency &ndash; 15.74580&nbsp;kHz (<math aria-label="f sub h"><msub><mi>f</mi><mi>h</mi></msub></math>)</li>
@@ -123,6 +140,48 @@
       <li>256x478@50i</li>
       <li>512x448@50i</li>
       <li>512x478@50i</li>
+    </ul>
+
+    <h5>PAL-M</h5>
+
+    <h6>All Modes</h6>
+    <ul>
+      <li>Chroma subcarrier frequency &ndash; 3.575611&nbsp;MHz (<math aria-label="f sub sc"><msub><mi>f</mi><mi>sc</mi></msub></math>)</li>
+      <li>Pixel clock &ndash; 21.45367&nbsp;MHz (<math aria-label="F sub s equals 6 f sub sc"><msub><mi>F</mi><mi>s</mi></msub><mo>=</mo><mn>6</mn><msub><mi>f</mi><mi>sc</mi></msub></math>)</li>
+      <li>Normal clock cycles per line &ndash; <a href="#ntsc-all-modes">see NTSC</a> (<math aria-label="N sub h"><msub><mi>N</mi><mi>h</mi></msub></math>)</li>
+      <li>Normal horizontal frequency &ndash; 15.72850&nbsp;kHz (see line 241 below) (<math aria-label="f sub h equals F sub s divided by N sub h"><msub><mi>f</mi><mi>h</mi></msub><mo>=</mo><mfrac><msub><mi>F</mi><mi>s</mi></msub><msub><mi>N</mi><mi>h</mi></msub></mfrac></math>)</li>
+    </ul>
+
+    <h6>Non-Interlaced Modes</h6>
+    <ul>
+      <li>Line 241, clock cycles &ndash; <a href="#ntsc-non-interlaced-modes">see NTSC</a> (<math aria-label="N sub h, N sub h 1 comma 241"><msub><mi>N</mi><mi>h</mi></msub><mo>,</mo><msub><mi>N</mi><mrow><mi>h</mi><mn>1</mn><mo>,</mo><mn>241</mn></mrow></msub></math>)</li>
+      <li>Line 241, horizontal frequency &ndash; 15.72850&nbsp;kHz even, 15.77476&nbsp;kHz odd (<math aria-label="f sub h, f sub h 1 comma 241 equals F sub s divided by N sub h 1 comma 241"><msub><mi>f</mi><mi>h</mi></msub><mo>,</mo><msub><mi>f</mi><mrow><mi>h</mi><mn>1</mn><mo>,</mo><mn>241</mn></mrow></msub><mo>=</mo><mfrac><msub><mi>F</mi><mi>s</mi></msub><msub><mi>N</mi><mrow><mi>h</mi><mn>1</mn><mo>,</mo><mn>241</mn></mrow></msub></mfrac></math>)</li>
+      <li>Lines per field &ndash; <a href="#ntsc-non-interlaced-modes">see NTSC</a> (<math aria-label="N sub v"><msub><mi>N</mi><mi>v</mi></msub></math>)</li>
+      <li>Clock cycles per field &ndash; <a href="#ntsc-non-interlaced-modes">see NTSC</a> (<math aria-label="N sub 0 equals N sub h times N sub v, N sub 1 equals N sub h times the quantity N sub v minus 1 plus N sub h 1 comma 241"><msub><mi>N</mi><mn>0</mn></msub><mo>=</mo><msub><mi>N</mi><mi>h</mi></msub><msub><mi>N</mi><mi>v</mi></msub><mo>,</mo><msub><mi>N</mi><mn>1</mn></msub><mo>=</mo><msub><mi>N</mi><mi>h</mi></msub><mrow><mo>(</mo><msub><mi>N</mi><mi>v</mi></msub><mo>-</mo><mn>1</mn><mo>)</mo></mrow><mo>+</mo><msub><mi>N</mi><mrow><mi>h</mi><mn>1</mn><mo>,</mo><mn>241</mn></mrow></msub></math>)</li>
+      <li>Field rate &ndash; 60.03243&nbsp;Hz even, 60.03310&nbsp;Hz odd (<math aria-label="f sub v 0 equals F sub s divided by N sub 0, f sub v 1 equals F sub s divided by N sub 1"><msub><mi>f</mi><mrow><mi>v</mi><mn>0</mn></mrow></msub><mo>=</mo><mfrac><msub><mi>F</mi><mi>s</mi></msub><msub><mi>N</mi><mn>0</mn></msub></mfrac><mo>,</mo><msub><mi>f</mi><mrow><mi>v</mi><mn>1</mn></mrow></msub><mo>=</mo><mfrac><msub><mi>F</mi><mi>s</mi></msub><msub><mi>N</mi><mn>1</mn></msub></mfrac></math>)</li>
+    </ul>
+
+    <h6>Interlaced Modes</h6>
+    <ul>
+      <li>Line 241, clock cycles &ndash; <a href="#ntsc-interlaced-modes">see NTSC</a> (<math aria-label="N sub h"><msub><mi>N</mi><mi>h</mi></msub></math>)</li>
+      <li>Line 241, horizontal frequency &ndash; 15.72850&nbsp;kHz (<math aria-label="f sub h"><msub><mi>f</mi><mi>h</mi></msub></math>)</li>
+      <li>Lines per field &ndash; <a href="#ntsc-interlaced-modes">see NTSC</a> (<math aria-label="N sub v 0, N sub v 1"><msub><mi>N</mi><mrow><mi>v</mi><mn>0</mn></mrow></msub><mo>,</mo><msub><mi>N</mi><mrow><mi>v</mi><mn>1</mn></mrow></msub></math>)</li>
+      <li>Clock cycles per field &ndash; <a href="#ntsc-interlaced-modes">see NTSC</a> (<math aria-label="N sub 0 equals N sub h times the quantity N sub v 0, N sub 1 equals N sub h times the quantity N sub v 1"><msub><mi>N</mi><mn>0</mn></msub><mo>=</mo><msub><mi>N</mi><mi>h</mi></msub><msub><mi>N</mi><mrow><mi>v</mi><mn>0</mn></mrow></msub><mo>,</mo><msub><mi>N</mi><mn>1</mn></msub><mo>=</mo><msub><mi>N</mi><mi>h</mi></msub><msub><mi>N</mi><mrow><mi>v</mi><mn>1</mn></mrow></msub></math>)</li>
+      <li>Clock cycles per frame &ndash; <a href="#ntsc-interlaced-modes">see NTSC</a> (<math aria-label="N sub 0 plus 1 equals N sub 0 plus N sub 1"><msub><mi>N</mi><mrow><mn>0</mn><mo>+</mo><mn>1</mn></mrow></msub><mo>=</mo><msub><mi>N</mi><mn>0</mn></msub><mo>+</mo><msub><mi>N</mi><mn>1</mn></msub></math>)</li>
+      <li>Field rate &ndash; 59.80417&nbsp;Hz even, 60.03243&nbsp;Hz odd (<math aria-label="f sub v 0 equals F sub s divided by N sub 0, f sub v 1 equals F sub s divided by N sub 1"><msub><mi>f</mi><mrow><mi>v</mi><mn>0</mn></mrow></msub><mo>=</mo><mfrac><msub><mi>F</mi><mi>s</mi></msub><msub><mi>N</mi><mn>0</mn></msub></mfrac><mo>,</mo><msub><mi>f</mi><mrow><mi>v</mi><mn>1</mn></mrow></msub><mo>=</mo><mfrac><msub><mi>F</mi><mi>s</mi></msub><msub><mi>N</mi><mn>1</mn></msub></mfrac></math>)</li>
+      <li>Frame rate &ndash; 29.95904&nbsp;Hz (<math aria-label="f sub frame equals F sub s divided by N sub 0 plus 1"><msub><mi>f</mi><mtext>frame</mtext></msub><mo>=</mo><mfrac><msub><mi>F</mi><mi>s</mi></msub><msub><mi>N</mi><mrow><mn>0</mn><mo>+</mo><mn>1</mn></mrow></msub></mfrac></math>)</li>
+    </ul>
+
+    <h6>Output Modes</h6>
+    <ul>
+      <li>256x224@60p</li>
+      <li>256x239@60p</li>
+      <li>512x224@60p</li>
+      <li>256x448@60i</li>
+      <li>512x239@60p</li>
+      <li>256x478@60i</li>
+      <li>512x448@60i</li>
+      <li>512x478@60i</li>
     </ul>
   </main>
   <footer>
